@@ -10,6 +10,12 @@ app.get('/', (req, res) => {
   res.status(200).send("Welcome to API REST")
 })
 
-http.createServer(app).listen(8001, () => {
-  console.log('Server started at http://localhost:8001');
+mongoose.connect("mongodb://localhost/api_rest_test", {useNewUrlParser: true, useUnifiedTopology: true}, (err, res) => {
+  if (err) {
+    console.log("ERROR: connecting to Database. " + err);
+  }
+
+  http.createServer(app).listen(8001, () => {
+    console.log('Server started at http://localhost:8001');
+  });
 });

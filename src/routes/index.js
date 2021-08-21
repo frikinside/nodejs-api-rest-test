@@ -13,11 +13,18 @@ router.get("/check", (req, res) => {
 		message: "OK",
 		timestamp: Date.now(),
 	};
-	res.send(healthcheck);
+	res.json(healthcheck);
 });
 
 router.get("/todo", (req, res) => {
-	const todo = ["Error handling", "full REST Api for Test model"];
+	const todo = [
+		"Error handling",
+		"full REST Api for Test model",
+		"Authentication",
+		"Permissions",
+		"Security",
+		"CORS and Headers validation",
+	];
 	res.json(todo);
 });
 

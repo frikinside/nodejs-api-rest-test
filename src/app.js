@@ -13,6 +13,10 @@ app.use(methodOverride());
 
 const routes = require("./routes");
 app.use(routes);
+app.use((err, req, res, next) => {
+	console.error(err);
+	res.status(500).send({ error: `Error: ${err}` });
+});
 
 mongoose.connect(
 	"mongodb://localhost/api_rest_test",
@@ -20,7 +24,7 @@ mongoose.connect(
 	(err, res) => {
 		if (err) {
 			console.log("ERROR: connecting to Database. " + err);
-			process.exit();//Maybe?
+			process.exit(); //Maybe?
 		}
 		app.emit("DBConected");
 	}

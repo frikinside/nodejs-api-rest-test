@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const TEST_SCHEMA = require("../models/test");
+const mongoose = require('mongoose');
+const TEST_SCHEMA = require('../models/test');
 
-const TEST = mongoose.model("TEST");
+const TEST = mongoose.model('TEST');
 
 module.exports.list = (filter) => {
 	return TEST.find(filter);
@@ -22,7 +22,7 @@ module.exports.increment = (test) => {
 
 module.exports.save = (name) => {
 	const test = new TEST({
-		name: name || "test_" + new Date().getTime(),
+		name: name || 'test_' + new Date().getTime(),
 		count: 1,
 		timestamp: new Date(),
 	});

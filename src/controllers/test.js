@@ -1,4 +1,4 @@
-const testService = require("../services/test");
+const testService = require('../services/test');
 
 module.exports.save = (req, res) => {
 	res.json(testService.save(req.params.name));
@@ -22,7 +22,7 @@ module.exports.increment = async (req, res) => {
 		test = await testService.increment(test);
 		res.json(test);
 	} catch (err) {
-		console.error("ERROR", err)
+		console.error('ERROR', err);
 		res.status(500).send(`Error: ${err}`);
 	}
 };

@@ -4,9 +4,6 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const TEST_SCHEMA = require('./models/test');
-const TEST = mongoose.model('TEST');
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(methodOverride());
